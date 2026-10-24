@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | REZ Destination</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #06152f, #092c55, #03101f);
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: rgba(2, 12, 30, 0.85);
+            border-bottom: 1px solid rgba(0, 238, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            color: #00eeff;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #00eeff;
+        }
+
+        .hero {
+            min-height: 55vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background:
+                linear-gradient(rgba(3, 15, 35, 0.65),
+                                rgba(3, 15, 35, 0.9)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero .tag {
+            color: #00eeff;
+            letter-spacing: 4px;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 72px);
+            margin: 15px 0;
+            text-shadow: 0 0 25px rgba(0, 238, 255, 0.35);
+        }
+
+        .hero h1 span {
+            color: #00eeff;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #e0edff;
+            line-height: 1.8;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 13px 28px;
+            background: #00eeff;
+            color: #001522;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px #00eeff;
+        }
+
+        section {
+            padding: 65px 8%;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .heading .tag {
+            color: #00eeff;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        .heading h2 {
+            font-size: clamp(27px, 4vw, 40px);
+            margin-top: 10px;
+        }
+
+        .heading h2 span {
+            color: #00eeff;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #d6e5f8;
+            line-height: 2;
+            font-size: 15px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(12, 42, 76, 0.65);
+            border: 1px solid rgba(0, 238, 255, 0.25);
+            border-radius: 18px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-9px);
+            border-color: #00eeff;
+            box-shadow: 0 12px 30px rgba(0, 238, 255, 0.15);
+        }
+
+        .card .icon {
+            font-size: 40px;
+        }
+
+        .card h3 {
+            color: #00eeff;
+            margin: 15px 0 10px;
+        }
+
+        .card p {
+            color: #d1e0f3;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .quote {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            text-align: center;
+            border: 1px solid rgba(0, 238, 255, 0.3);
+            border-radius: 18px;
+            background: rgba(12, 42, 76, 0.55);
+        }
+
+        .quote h2 {
+            color: #00eeff;
+            margin-bottom: 15px;
+        }
+
+        .quote p {
+            color: #d6e5f8;
+            line-height: 1.9;
+        }
+
+        footer {
+            padding: 25px 15px;
+            text-align: center;
+            background: rgba(2, 12, 30, 0.85);
+            border-top: 1px solid rgba(0, 238, 255, 0.25);
+            color: #a9bfd9;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #00eeff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">REZ DESTINATION</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="india.html">India</a>
+            <a href="about.html" class="active">About Us</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="tag">DISCOVER • EXPLORE • EXPERIENCE</div>
+
+        <h1>About <span>Us</span> 🌍</h1>
+
+        <p>
+            Welcome to REZ Destination, your starting point for discovering
+            beautiful places, exploring new cultures, and finding inspiration
+            for your next adventure.
+        </p>
+
+        <a href="destinations.html" class="button">Explore Destinations →</a>
+    </div>
+
+    <section>
+        <div class="heading">
+            <div class="tag">WHO WE ARE</div>
+            <h2>Welcome to <span>REZ Destination</span></h2>
+        </div>
+
+        <div class="about-content">
+            REZ Destination is a travel and tourism website created to
+            introduce visitors to exciting destinations and memorable
+            travel experiences. From India's historic monuments and
+            peaceful beaches to breathtaking landscapes around the world,
+            we bring travel inspiration together in one place.
+
+            <br><br>
+
+            Our goal is to make discovering destinations simple, enjoyable,
+            and inspiring. Through our destination pages, visitors can learn
+            about famous attractions, local culture, and places worth
+            exploring.
+        </div>
+    </section>
+
+    <section>
+        <div class="heading">
+            <div class="tag">WHAT WE OFFER</div>
+            <h2>Explore the <span>Possibilities</span></h2>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🌍</div>
+                <h3>Beautiful Destinations</h3>
+                <p>
+                    Discover amazing places, from scenic mountains and
+                    beaches to vibrant cities and historic landmarks.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏛️</div>
+                <h3>Culture & Heritage</h3>
+                <p>
+                    Learn about the traditions, history, architecture,
+                    and unique character of different destinations.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧭</div>
+                <h3>Travel Inspiration</h3>
+                <p>
+                    Find ideas for your next adventure and discover
+                    attractions you may want to visit.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✨</div>
+                <h3>Memorable Experiences</h3>
+                <p>
+                    Get inspired to explore new places, experience
+                    different cultures, and create lasting memories.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="quote">
+            <h2>Our Mission ✈️</h2>
+            <p>
+                Our mission is to inspire people to discover the beauty
+                of the world, appreciate different cultures, and explore
+                destinations with curiosity and excitement.
+                <br><br>
+                <strong>Every destination has a story. Let's discover it together!</strong>
+            </p>
+
+            <a href="destinations.html" class="button">
+                Start Exploring
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 <span>REZ Destination</span> |
+        Discover. Explore. Experience.
+    </footer>
+
+</body>
+</html>

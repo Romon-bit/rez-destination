@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabad | REZ Destination</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #06152f, #092c55, #03101f);
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: rgba(2, 12, 30, 0.8);
+            border-bottom: 1px solid rgba(0, 238, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #00eeff;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 24px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00eeff;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 70px 20px;
+            background:
+                linear-gradient(rgba(3, 15, 35, 0.55),
+                rgba(3, 15, 35, 0.9)),
+                url("https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero p {
+            color: #00eeff;
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            font-weight: 800;
+            text-shadow: 0 0 25px rgba(0, 238, 255, 0.5);
+            animation: appear 1s ease;
+        }
+
+        .hero h1 span {
+            color: #00eeff;
+        }
+
+        .hero .description {
+            max-width: 720px;
+            color: #e0edff;
+            line-height: 1.8;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 28px;
+            color: #001522;
+            background: #00eeff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 238, 255, 0.25);
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px #00eeff;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading p {
+            color: #00eeff;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(27px, 4vw, 40px);
+            margin-top: 10px;
+        }
+
+        .section-heading h2 span {
+            color: #00eeff;
+        }
+
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #d6e5f8;
+            line-height: 1.9;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(12, 42, 76, 0.65);
+            border: 1px solid rgba(0, 238, 255, 0.25);
+            border-radius: 18px;
+            padding: 30px 25px;
+            transition: transform 0.35s, box-shadow 0.35s,
+                        border-color 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #00eeff;
+            box-shadow: 0 12px 35px rgba(0, 238, 255, 0.15);
+        }
+
+        .card .emoji {
+            font-size: 38px;
+        }
+
+        .card h3 {
+            color: #00eeff;
+            margin: 15px 0 10px;
+        }
+
+        .card p {
+            color: #d1e0f3;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .tips {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            border-left: 4px solid #00eeff;
+            border-radius: 12px;
+            background: rgba(12, 42, 76, 0.65);
+            line-height: 2;
+            color: #d6e5f8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: rgba(2, 12, 30, 0.85);
+            border-top: 1px solid rgba(0, 238, 255, 0.25);
+            color: #a9bfd9;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #00eeff;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 50px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">REZ DESTINATION</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="india.html">India</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <p>DISCOVER INCREDIBLE INDIA</p>
+
+        <h1>About <span>Hyderabad</span> 🕌</h1>
+
+        <div class="description">
+            Discover Hyderabad, the City of Pearls, famous for its royal
+            heritage, historic monuments, colourful markets and delicious
+            Hyderabadi biryani. Explore its unique combination of history
+            and modern city life.
+        </div>
+
+        <a href="#places" class="button">Explore Hyderabad ↓</a>
+    </div>
+
+    <section>
+        <div class="section-heading">
+            <p>THE CITY OF PEARLS</p>
+            <h2>Welcome to <span>Hyderabad</span></h2>
+        </div>
+
+        <div class="about">
+            Hyderabad is the capital of Telangana, India. It is well known
+            for its rich Nizam history, beautiful architecture, traditional
+            bazaars and famous cuisine. Visitors can experience historic
+            landmarks alongside modern attractions, shopping centres
+            and lively cultural spaces.
+        </div>
+    </section>
+
+    <section id="places">
+        <div class="section-heading">
+            <p>EXPLORE THE CITY</p>
+            <h2>Famous Places in <span>Hyderabad</span></h2>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="emoji">🕌</div>
+                <h3>Charminar</h3>
+                <p>
+                    Hyderabad's iconic monument, known for its four
+                    grand minarets and the lively markets surrounding it.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🏰</div>
+                <h3>Golconda Fort</h3>
+                <p>
+                    A historic fortress famous for its impressive
+                    architecture, massive gateways and fascinating past.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🎬</div>
+                <h3>Ramoji Film City</h3>
+                <p>
+                    A popular film studio complex with movie sets,
+                    entertainment attractions and guided tours.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🌊</div>
+                <h3>Hussain Sagar Lake</h3>
+                <p>
+                    A scenic lake featuring a large Buddha statue
+                    and pleasant waterfront views.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🏛️</div>
+                <h3>Chowmahalla Palace</h3>
+                <p>
+                    A magnificent palace showcasing the royal lifestyle,
+                    elegant halls and heritage of the Nizams.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🍛</div>
+                <h3>Hyderabadi Biryani</h3>
+                <p>
+                    Taste the city's famous aromatic rice dish,
+                    prepared with traditional spices and local flavours.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="section-heading">
+            <p>PLAN YOUR VISIT</p>
+            <h2>Travel <span>Tips</span></h2>
+        </div>
+
+        <div class="tips">
+            <p>☀️ <strong>Best time:</strong> October to March.</p>
+            <p>🚇 <strong>Getting around:</strong> Metro, buses, taxis and auto-rickshaws.</p>
+            <p>🍽️ <strong>Must try:</strong> Hyderabadi biryani and local street food.</p>
+            <p>📸 <strong>Don't miss:</strong> Charminar, Golconda Fort and Hussain Sagar Lake.</p>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 <span>REZ Destination</span> | Discover. Explore. Experience.
+    </footer>
+
+</body>
+</html>

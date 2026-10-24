@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Destinations | REZ Destination</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(0, 150, 255, 0.25),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(80, 60, 255, 0.25),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #020617,
+                    #061b3d,
+                    #10105c
+                );
+
+            background-attachment: fixed;
+        }
+
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 7%;
+
+            background: rgba(2, 12, 35, 0.8);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(0, 200, 255, 0.15);
+        }
+
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+
+        .logo span {
+
+            color: #00c8ff;
+        }
+
+
+        nav {
+
+            display: flex;
+
+            gap: 30px;
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+
+            color: #00c8ff;
+        }
+
+
+        nav a.active {
+
+            color: #00c8ff;
+
+            border-bottom:
+                2px solid #00c8ff;
+
+            padding-bottom: 5px;
+        }
+
+
+
+        .hero {
+
+            text-align: center;
+
+            padding: 90px 20px 60px;
+
+            animation: fadeIn 1s ease;
+        }
+
+
+        .hero small {
+
+            color: #00c8ff;
+
+            font-weight: 600;
+
+            letter-spacing: 4px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(45px, 7vw, 75px);
+
+            margin: 15px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    white,
+                    #00c8ff,
+                    #8d9dff
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #b9cce3;
+
+            line-height: 1.8;
+        }
+
+
+
+        .container {
+
+            width: 86%;
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding-bottom: 100px;
+        }
+
+
+        .destination-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+
+     
+
+        .card {
+
+            position: relative;
+
+            height: 420px;
+
+            overflow: hidden;
+
+            border-radius: 25px;
+
+            background: #07152e;
+
+            border:
+                1px solid rgba(0, 200, 255, 0.15);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.5s ease,
+                box-shadow 0.5s ease,
+                border-color 0.5s ease;
+
+            animation: cardAppear 0.8s ease both;
+        }
+
+
+        .card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.8s ease;
+        }
+
+
+        .card::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    transparent 20%,
+                    rgba(1, 8, 25, 0.95)
+                );
+        }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-12px);
+
+            border-color:
+                #00c8ff;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0, 174, 255, 0.25);
+        }
+
+
+        .card:hover img {
+
+            transform:
+                scale(1.12);
+        }
+
+
+
+        .card-content {
+
+            position: absolute;
+
+            z-index: 2;
+
+            left: 25px;
+
+            right: 25px;
+
+            bottom: 25px;
+        }
+
+
+        .number {
+
+            color: #00c8ff;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            font-weight: 600;
+        }
+
+
+        .card h2 {
+
+            font-size: 27px;
+
+            margin: 5px 0;
+        }
+
+
+        .card p {
+
+            color: #bdd2e8;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-bottom: 15px;
+        }
+
+
+        .explore {
+
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border:
+                1px solid rgba(0, 200, 255, 0.6);
+
+            border-radius: 30px;
+
+            color: white;
+
+            background:
+                rgba(0, 150, 255, 0.12);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+
+        .explore:hover {
+
+            background: #00c8ff;
+
+            color: #02101f;
+
+            transform: translateY(-2px);
+        }
+
+
+     
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: #020617;
+
+            color: #7189a5;
+
+            font-size: 14px;
+        }
+
+
+        footer span {
+
+            color: #00c8ff;
+        }
+
+
+      
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @media (max-width: 950px) {
+
+            .destination-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding: 18px 5%;
+
+                flex-wrap: wrap;
+
+                gap: 15px;
+            }
+
+
+            nav {
+
+                gap: 15px;
+            }
+
+
+            nav a {
+
+                font-size: 12px;
+            }
+
+
+            .destination-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .container {
+
+                width: 90%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+    <div class="logo">
+
+        REZ<span>.</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a
+            href="destinations.html"
+            class="active"
+        >
+            Destinations
+        </a>
+
+        <a href="index.html#why">
+            Why Us
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<section class="hero">
+
+    <small>
+        EXPLORE THE WORLD
+    </small>
+
+    <h1>
+        Popular Destinations
+    </h1>
+
+    <p>
+        Discover breathtaking countries, amazing cultures
+        and unforgettable experiences with REZ Destination.
+    </p>
+
+</section>
+
+
+
+
+
+<main class="container">
+
+    <div class="destination-grid">
+
+
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85"
+                alt="India"
+            >
+
+            <div class="card-content">
+
+                <div class="number">
+                    DESTINATION 01
+                </div>
+
+                <h2>
+                    India 🇮🇳
+                </h2>
+
+                <p>
+                    Culture • Heritage • Adventure
+                </p>
+
+                <a
+                    href="india.html"
+                    class="explore"
+                >
+                    Explore India →
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1000&q=85"
+                alt="Switzerland"
+            >
+
+            <div class="card-content">
+
+                <div class="number">
+                    DESTINATION 02
+                </div>
+
+                <h2>
+                    Switzerland 🇨🇭
+                </h2>
+
+                <p>
+                    Mountains • Lakes • Nature
+                </p>
+
+                <a
+                    href="switzerland.html"
+                    class="explore"
+                >
+                    Explore Switzerland →
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+    
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1000&q=85"
+                alt="Maldives"
+            >
+
+            <div class="card-content">
+
+                <div class="number">
+                    DESTINATION 03
+                </div>
+
+                <h2>
+                    Maldives 🇲🇻
+                </h2>
+
+                <p>
+                    Beaches • Islands • Relaxation
+                </p>
+
+                <a
+                    href="maldives.html"
+                    class="explore"
+                >
+                    Explore Maldives →
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=85"
+                alt="France"
+            >
+
+            <div class="card-content">
+
+                <div class="number">
+                    DESTINATION 04
+                </div>
+
+                <h2>
+                    France 🇫🇷
+                </h2>
+
+                <p>
+                    Art • Culture • Architecture
+                </p>
+
+                <a
+                    href="france.html"
+                    class="explore"
+                >
+                    Explore France →
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1000&q=85"
+                alt="United Kingdom"
+            >
+
+            <div class="card-content">
+
+                <div class="number">
+                    DESTINATION 05
+                </div>
+
+                <h2>
+                    United Kingdom 🇬🇧
+                </h2>
+
+                <p>
+                    History • Cities • Culture
+                </p>
+
+                <a
+                    href="uk.html"
+                    class="explore"
+                >
+                    Explore UK →
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+   
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=85"
+                alt="United Arab Emirates"
+            >
+
+            <div class="card-content">
+
+                <div class="number">
+                    DESTINATION 06
+                </div>
+
+                <h2>
+                    UAE 🇦🇪
+                </h2>
+
+                <p>
+                    Luxury • Desert • Modern City
+                </p>
+
+                <a
+                    href="uae.html"
+                    class="explore"
+                >
+                    Explore UAE →
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+   
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    © 2026
+    <span>REZ Destination</span>
+    · Explore More. Travel More.
+
+</footer>
+
+
+</body>
+
+</html>

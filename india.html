@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore India | REZ Destination</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 10% 20%, #075985, transparent 35%),
+        radial-gradient(circle at 90% 80%, #312e81, transparent 35%),
+        linear-gradient(135deg, #020617, #082f49, #172554);
+    background-attachment: fixed;
+}
+
+/* NAVIGATION */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    background: rgba(2, 12, 35, .9);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(0, 200, 255, .2);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #00c8ff;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #00c8ff;
+}
+
+/* HERO */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 90px 8%;
+    background:
+        linear-gradient(90deg, rgba(2,8,25,.9), rgba(2,20,50,.35)),
+        url("https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center;
+    animation: fadeIn 1s ease;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero small {
+    color: #00c8ff;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 85px);
+    line-height: 1.1;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: #00c8ff;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #d5e7f8;
+    line-height: 1.9;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #00c8ff, #006eff);
+    color: #031027;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 35px rgba(0,174,255,.4);
+}
+
+/* INTRODUCTION */
+.intro {
+    width: 86%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 0 35px;
+    text-align: center;
+}
+
+.label {
+    color: #00c8ff;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.intro h2, .section-title h2 {
+    font-size: clamp(30px, 5vw, 42px);
+    margin: 12px 0;
+}
+
+.intro p {
+    color: #b9cce3;
+    line-height: 1.9;
+}
+
+/* PLACES */
+.container {
+    width: 86%;
+    max-width: 1300px;
+    margin: auto;
+    padding: 40px 0 90px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.places {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.place {
+    overflow: hidden;
+    border-radius: 22px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(0,200,255,.17);
+    transition: .4s;
+    animation: fadeIn .8s ease both;
+}
+
+.place:hover {
+    transform: translateY(-9px);
+    border-color: #00c8ff;
+    box-shadow: 0 15px 40px rgba(0,174,255,.2);
+}
+
+.place img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+    transition: .6s;
+}
+
+.place:hover img {
+    transform: scale(1.06);
+}
+
+.place-content {
+    padding: 22px;
+}
+
+.place h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.place p {
+    color: #bdd2e8;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.explore {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 9px 18px;
+    border: 1px solid #00c8ff;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.explore:hover {
+    background: #00c8ff;
+    color: #031027;
+}
+
+/* TRAVEL MESSAGE */
+.travel-note {
+    width: 86%;
+    max-width: 1100px;
+    margin: 0 auto 75px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(0,150,255,.08);
+    border: 1px solid rgba(0,200,255,.2);
+    text-align: center;
+}
+
+.travel-note p {
+    color: #c4d8ed;
+    line-height: 1.8;
+    margin-top: 10px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 28px 15px;
+    background: #020617;
+    color: #8297b2;
+    font-size: 13px;
+}
+
+footer span {
+    color: #00c8ff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media(max-width: 900px) {
+    .places {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+        gap: 14px;
+        padding: 18px 5%;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .places {
+        grid-template-columns: 1fr;
+    }
+
+    .container, .intro, .travel-note {
+        width: 90%;
+    }
+
+    .hero {
+        min-height: 60vh;
+        padding: 70px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="logo">REZ<span>.</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="index.html#why">About Us</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+    <div class="hero-content">
+        <small>DESTINATION 01 · INCREDIBLE INDIA</small>
+        <h1>Discover <span>India</span> 🇮🇳</h1>
+
+        <p>
+            Explore India's incredible heritage, magnificent
+            monuments, beautiful beaches, peaceful backwaters
+            and breathtaking mountains.
+        </p>
+
+        <a href="#places" class="btn">Explore Places ↓</a>
+    </div>
+</section>
+
+<!-- ABOUT INDIA -->
+<section class="intro">
+    <span class="label">A LAND OF DIVERSITY</span>
+    <h2>Experience the Magic of India</h2>
+
+    <p>
+        From historic cities to natural wonders, India offers
+        unforgettable experiences, colourful traditions,
+        delicious food and extraordinary architecture.
+        Discover six amazing places to begin your journey.
+    </p>
+</section>
+
+<!-- SIX PLACES -->
+<main class="container" id="places">
+
+    <div class="section-title">
+        <span class="label">YOUR NEXT ADVENTURE</span>
+        <h2>Places to Explore</h2>
+    </div>
+
+    <div class="places">
+
+        <!-- 2 JAIPUR -->
+        <article class="place">
+            <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=900&q=85"
+                 alt="Jaipur heritage" loading="lazy">
+            <div class="place-content">
+                <h3>Jaipur, Rajasthan 🏰</h3>
+                <p>Explore royal palaces, historic forts and the colourful Pink City.</p>
+                <a href="jaipur.html" class="explore">Explore Jaipur →</a>
+            </div>
+        </article>
+
+        <!-- 3 KERALA -->
+        <article class="place">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=85"
+                 alt="Kerala backwaters" loading="lazy">
+            <div class="place-content">
+                <h3>Kerala 🌴</h3>
+                <p>Enjoy backwaters, green landscapes, hill stations and beautiful beaches.</p>
+                <a href="kerala.html" class="explore">Explore Kerala →</a>
+            </div>
+        </article>
+
+        <!-- 4 GOA -->
+        <article class="place">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85"
+                 alt="Goa coastline" loading="lazy">
+            <div class="place-content">
+                <h3>Goa 🏖️</h3>
+                <p>Discover sandy beaches, Portuguese-influenced architecture and coastal culture.</p>
+                <a href="goa.html" class="explore">Explore Goa →</a>
+            </div>
+        </article>
+
+
+
+    </div>
+</main>
+
+<section class="travel-note">
+    <h2>India Is Waiting for You! ✈️</h2>
+    <p>Discover new places, experience different cultures and create unforgettable memories with REZ Destination.</p>
+</section>
+
+<footer>
+    © 2026 <span>REZ Destination</span> · Explore More. Travel More.
+</footer>
+
+</body>
+</html>
