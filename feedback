@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback | REZ Destination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;background:#07111f;color:white;overflow-x:hidden;min-height:100vh}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(5,12,22,.65);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.08)}
+.logo{font-size:28px;font-weight:800;letter-spacing:2px;color:white;text-decoration:none}.logo span{color:#00d9ff}
+nav{display:flex;gap:35px}nav a{color:white;text-decoration:none;font-size:15px;transition:.3s}nav a:hover{color:#00d9ff}
+.menu-btn{display:none;font-size:28px;color:white;background:transparent;border:0;cursor:pointer;padding:5px}
+.page{min-height:100vh;padding:145px 7% 80px;background:radial-gradient(circle at 10% 20%,#075985,transparent 35%),radial-gradient(circle at 90% 80%,#312e81,transparent 35%),linear-gradient(135deg,#020617,#082f49,#172554)}
+.heading{text-align:center;max-width:700px;margin:10px auto 38px;animation:rise 1s ease}.heading small{color:#00d9ff;letter-spacing:3px;font-weight:600}.heading h1{font-size:clamp(38px,6vw,64px);margin:12px 0}.heading h1 span{color:#00d9ff}.heading p{color:#cbd5e1;line-height:1.8}
+.feedback-box{max-width:760px;margin:auto;padding:38px;background:rgba(3,12,27,.72);border:1px solid rgba(0,217,255,.25);border-radius:25px;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:rise 1.2s ease}
+.field{margin-bottom:22px}.field label{display:block;margin-bottom:9px;font-weight:500;color:#e2e8f0}
+input,textarea,select{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.17);background:rgba(255,255,255,.06);color:white;font:inherit;outline:none;transition:.3s}
+input:focus,textarea:focus,select:focus{border-color:#00d9ff;box-shadow:0 0 0 3px rgba(0,217,255,.12)}
+input::placeholder,textarea::placeholder{color:#94a3b8}textarea{min-height:145px;resize:vertical}select option{background:#07111f;color:white}
+.rating{display:flex;gap:12px;flex-wrap:wrap}.rating label{display:flex;align-items:center;gap:7px;padding:10px 14px;border:1px solid rgba(255,255,255,.16);border-radius:12px;cursor:pointer}.rating input{width:auto;accent-color:#00d9ff}
+.submit-btn{border:0;border-radius:50px;padding:14px 30px;background:#00d9ff;color:#04101b;font:600 16px Poppins,sans-serif;cursor:pointer;transition:.3s}.submit-btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,217,255,.4)}
+#success{display:none;margin-top:22px;padding:16px;border:1px solid #00d9ff;border-radius:12px;color:#a5f3fc;background:rgba(0,217,255,.1);line-height:1.6}
+footer{padding:25px 7%;text-align:center;background:#030811;color:#718096;font-size:14px}footer span{color:#00d9ff}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){nav{display:none;position:absolute;top:100%;left:0;width:100%;padding:20px 7%;background:rgba(5,12,22,.98);flex-direction:column;gap:20px}nav.active{display:flex}.menu-btn{display:block}}
+@media(max-width:600px){header{padding:18px 5%}.page{padding:125px 5% 60px}.feedback-box{padding:25px 20px}}
+</style>
+</head>
+<body>
+<header>
+<a href="index.html" class="logo">REZ<span>.</span></a>
+<nav id="main-nav">
+<a href="index.html">Home</a><a href="destinations.html">Destinations</a><a href="about.html">About Us</a><a href="feedback.html">Feedback</a>
+</nav>
+<button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+</header>
+<main class="page">
+<div class="heading"><small>WE VALUE YOUR OPINION</small><h1>Share Your <span>Feedback.</span></h1><p>Tell us about your experience with REZ Destination. Your suggestions can help us make every journey better.</p></div>
+
+
+<form class="feedback-box" id="feedbackForm" action="https://api.web3forms.com/submit" method="POST">
+    
+   
+    <input type="hidden" name="access_key" value="4ce65d0c-72e7-48bf-a400-502c3c19293f">
+    
+    <input type="hidden" name="subject" value="New Feedback Received - REZ Destination">
+
+<div class="field"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="Enter your name" maxlength="60" required></div>
+<div class="field"><label>How would you rate our website?</label><div class="rating">
+<label><input type="radio" name="rating" value="1" required> 1</label><label><input type="radio" name="rating" value="2"> 2</label><label><input type="radio" name="rating" value="3"> 3</label><label><input type="radio" name="rating" value="4"> 4</label><label><input type="radio" name="rating" value="5"> 5 ⭐</label>
+</div></div>
+<div class="field"><label for="topic">What is your feedback about?</label><select id="topic" name="topic" required><option value="" disabled selected>Choose a topic</option><option>Website design</option><option>Destination information</option><option>Ease of navigation</option><option>Other suggestion</option></select></div>
+<div class="field"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write your feedback or suggestions here..." maxlength="1000" required></textarea></div>
+
+
+<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+<button class="submit-btn" type="submit">Submit Feedback ↗</button><div id="success" role="status" aria-live="polite"></div>
+</form>
+</main>
+<footer>© 2026 <span>REZ Destination</span>. Explore More. Travel More. Live More.</footer>
+<script>
+const menuButton=document.querySelector('.menu-btn');
+const navigation=document.querySelector('#main-nav');
+menuButton.addEventListener('click',()=>{
+ const open=navigation.classList.toggle('active');
+ menuButton.setAttribute('aria-expanded',String(open));
+ menuButton.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
+ menuButton.textContent=open?'✕':'☰';
+});
+navigation.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+ navigation.classList.remove('active');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰';
+}));
+
+// Web3Forms Submit Handler with AJAX
+document.querySelector('#feedbackForm').addEventListener('submit', async (event) => {
+ event.preventDefault();
+ const form = event.currentTarget;
+ const success = document.querySelector('#success');
+
+ if 
+
+ const submitBtn = form.querySelector('.submit-btn');
+ submitBtn.disabled = true;
+ submitBtn.textContent = 'Sending...';
+ success.style.display = 'none';
+
+ const formData = new FormData(form);
+
+ try {
+  const response = await fetch(form.action, {
+   method: 'POST',
+   body: formData
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+   success.textContent = `Thank you, ${form.name.value.trim()}! Your feedback has been sent to our inbox successfully.`;
+   success.style.display = 'block';
+   form.reset();
+  } else {
+   throw new Error(data.message || 'Submission failed');
+  }
+ } catch (error) {
+  success.textContent = 'There was an error sending your feedback. Please check your Access Key and try again.';
+  success.style.display = 'block';
+ } finally {
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Submit Feedback ↗';
+ }
+});
+</script>
+</body>
+</html>
