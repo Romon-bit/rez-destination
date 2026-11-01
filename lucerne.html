@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucerne | REZ Destination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff;min-height:100vh;background:radial-gradient(circle at 10% 20%,rgba(0,150,255,.25),transparent 35%),radial-gradient(circle at 90% 80%,rgba(80,60,255,.25),transparent 35%),linear-gradient(135deg,#020617,#061b3d,#10105c);background-attachment:fixed}
+a:focus-visible{outline:2px solid #00c8ff;outline-offset:3px}
+header{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 7%;background:rgba(2,12,35,.8);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,200,255,.18)}
+.logo{font-size:28px;font-weight:800;letter-spacing:2px;color:#fff;text-decoration:none}.logo span,.cyan{color:#00c8ff}
+nav{display:flex;gap:26px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;font-size:14px;transition:color .3s}nav a:hover{color:#00c8ff}
+.hero{min-height:68vh;display:flex;align-items:center;padding:90px 8%;background:linear-gradient(90deg,rgba(2,8,25,.92),rgba(2,20,50,.35)),url("https://images.unsplash.com/photo-1515488764276-be1999ff2c1e?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero-content{max-width:780px;animation:rise .9s ease both}
+.hero small,.label{color:#00c8ff;font-size:12px;font-weight:700;letter-spacing:4px}
+.hero h1{font-size:clamp(42px,7vw,78px);line-height:1.1;margin:18px 0}.hero h1 span{color:#00c8ff}
+.hero p{max-width:660px;color:#d5e7f8;line-height:1.9}
+.btn{display:inline-block;margin-top:25px;padding:12px 26px;border-radius:30px;color:#031027;text-decoration:none;font-weight:700;background:linear-gradient(135deg,#00c8ff,#006eff);transition:.3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,174,255,.4)}
+.wrap{width:86%;max-width:1200px;margin:auto;padding:70px 0 20px}
+.wrap h2{font-size:clamp(28px,4.5vw,42px);margin:10px 0 18px}
+.lead{color:#c5d8ed;line-height:1.95;max-width:900px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:34px}
+.card{padding:28px;border-radius:22px;background:rgba(255,255,255,.055);border:1px solid rgba(0,200,255,.18);display:flex;flex-direction:column;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-6px);border-color:#00c8ff;box-shadow:0 15px 42px rgba(0,174,255,.18)}
+.card .sym{font-size:34px;margin-bottom:14px}.card h3{font-size:20px;margin-bottom:8px}
+.card p{color:#bdd2e8;font-size:14px;line-height:1.85;flex:1}
+.tag{align-self:flex-start;margin-bottom:12px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;color:#00c8ff;background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.3)}
+.visit{align-self:flex-start;margin-top:18px;padding:9px 18px;border:1px solid #00c8ff;border-radius:30px;color:#fff;text-decoration:none;font-size:13px;transition:.3s}
+.visit:hover{background:#00c8ff;color:#031027}
+.more{margin-top:20px;color:#9fb8d4;font-size:14px}.more a{color:#00c8ff}
+.tip{margin-top:50px;padding:28px;border-radius:20px;background:rgba(0,150,255,.08);border:1px solid rgba(0,200,255,.2)}
+.tip h3{margin-bottom:10px}.tip p{color:#bdd2e8;font-size:14px;line-height:1.85}
+.back{display:inline-block;margin:32px 0 70px;color:#00c8ff;text-decoration:none}.back:hover{text-decoration:underline}
+footer{text-align:center;padding:28px 15px;background:#020617;color:#8297b2;font-size:13px}footer span{color:#00c8ff}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){header{flex-wrap:wrap;padding:16px 5%}nav{width:100%;justify-content:space-between;gap:8px}nav a{font-size:12px}.hero{min-height:58vh;padding:65px 6%}.wrap{width:90%}.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+nav a.active{color:#00c8ff;border-bottom:2px solid #00c8ff;padding-bottom:4px}
+.stay-link{display:inline-block;margin-top:16px;padding:9px 18px;border:1px solid #00c8ff;border-radius:30px;color:#fff;text-decoration:none;font-size:13px;transition:.3s}.stay-link:hover{background:#00c8ff;color:#031027}.stay-note{margin-top:20px;color:#9fb8d4;font-size:14px}.stay-tag{color:#00c8ff;font-weight:600}
+</style>
+</head>
+<body>
+<header>
+<a href="index.html" class="logo">REZ<span>.</span></a>
+<nav>
+<a href="index.html">Home</a>
+<a href="destinations.html">Destinations</a>
+<a href="about.html">About Us</a>
+<a href="feedback.html">Feedback</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<small>LAKE AND OLD TOWN</small>
+<h1>Discover <span>Lucerne</span> 🌉</h1>
+<p>Lucerne combines a charming old town, a lakefront and mountain views in one walkable city.</p>
+<a href="#about" class="btn">Explore ↓</a>
+</div>
+</section>
+
+<main>
+<section class="wrap" id="about">
+<span class="label">ABOUT LUCERNE</span>
+<h2>About Lucerne</h2>
+<p class="lead">Lucerne sits on Lake Lucerne in central Switzerland. Painted houses, medieval towers and cafés line the river, and boats and trains lead to nearby peaks.</p>
+<div class="grid">
+<article class="card"><div class="sym">🌉</div><h3>Chapel Bridge</h3><p>A covered wooden bridge and one of Switzerland's best-known landmarks.</p></article>
+<article class="card"><div class="sym">⛴️</div><h3>Lake Lucerne</h3><p>Take a lake cruise with mountain scenery on every side.</p></article>
+<article class="card"><div class="sym">🏔️</div><h3>Mount Pilatus</h3><p>Ride a cogwheel train or cable car to panoramic views.</p></article>
+</div>
+</section>
+
+<section class="wrap" id="stay">
+<span class="label">WHERE TO STAY</span>
+<h2>Hotels in and near Lucerne</h2>
+<div class="grid">
+<article class="card"><span class="tag">Lakefront</span><h3>Hotel Schweizerhof Luzern</h3><p>A hotel on the Lucerne lakefront.</p><a class="visit" href="https://www.schweizerhof-luzern.ch" target="_blank" rel="noopener noreferrer">Visit hotel website ↗</a></article>
+<article class="card"><span class="tag">Hillside</span><h3>Hotel Montana Luzern</h3><p>A hillside hotel with views over Lake Lucerne and the old town.</p><a class="visit" href="https://www.hotel-montana.ch" target="_blank" rel="noopener noreferrer">Visit hotel website ↗</a></article>
+<article class="card"><span class="tag">Historic</span><h3>Grand Hotel National Luzern</h3><p>A historic hotel on the lakefront.</p><a class="visit" href="https://www.grandhotel-national.com" target="_blank" rel="noopener noreferrer">Visit hotel website ↗</a></article>
+</div>
+<p class="more">Prices and availability change by season, so check the hotel's own page before you book.</p>
+<div class="tip">
+<h3 class="cyan">✈️ Travel tips</h3>
+<p>The old town is easy to see on foot in a day. Add a lake cruise or a mountain trip if you have more time.</p>
+</div>
+<a href="swiz.html" class="back">← Back to Explore Switzerland</a>
+</section>
+</main>
+
+<footer>© 2026 <span>REZ Destination</span> · Explore More. Travel More.</footer>
+</body>
+</html>
